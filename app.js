@@ -9,11 +9,11 @@ GAME RULES:
 
 */
 
-var score, roundScore, activePlayer, gamePlaying, previosValue, winningScore;
+var scores, roundScore, activePlayer, gamePlaying, previosValue, winningScore;
 
 init();
 
-document.querySelector('.btn-roll-1').addEventListener('click', () => {
+document.querySelector('.btn-roll').addEventListener('click', () => {
   if (gamePlaying) {
     var dice = Math.floor(Math.random() * 6) + 1;
     
@@ -26,17 +26,6 @@ document.querySelector('.btn-roll-1').addEventListener('click', () => {
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
 
       var totalScore = previosValue.push(dice);
-      
-      if(previosValue[totalScore-1] == 6 && previosValue[totalScore-2] == 6) {
-        console.log('doubleSix');
-        previosValue = [];
-
-        scores[activePlayer] = 0;
-
-        document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
-
-        nextPlayer();
-      }
       
     } else {
       previosValue = [];
@@ -68,17 +57,6 @@ document.querySelector('.btn-hold').addEventListener('click', () => {
 
 document.querySelector('.btn-new').addEventListener('click', init);
 
-document.querySelector('.btn-submit').addEventListener('click', () => {
-  if (winningScore === 100) {
-    winningScore = document.querySelector('.input-score').value;
-    document.querySelector('.btn-submit').textContent = 'Winning score: ' + winningScore;
-    console.log(document.querySelector('.input-score').value);  
-    document.querySelector('.input-score').value = "";
-  }
-});
-
-
-
 function init() {
   scores = [0, 0];
   activePlayer = 0;
@@ -86,8 +64,6 @@ function init() {
   gamePlaying = true;
   previosValue = [];
   winningScore = 100;
-
-  document.querySelector('.btn-submit').textContent = 'Submit winnig score'
     
   document.querySelector('.dice').style.display = 'none';
 

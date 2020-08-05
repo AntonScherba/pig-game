@@ -138,8 +138,7 @@ i {
 }
 
 .btn-new { top: 45px;}
-.btn-roll-1 { top: 505px; left: 25%;}
-.btn-roll-2 { top: 505px; left: 75%;}
+.btn-roll { top: 505px; left: 50%;}
 .btn-hold { top: 467px;}
 .btn-submit { top: 550px;}
 
